@@ -1,0 +1,34 @@
+{
+    "name": "tinyhouse_v1-server",
+    "version": "0.1.0",
+    "dependencies": {
+        "apollo-server-express": "^2.23.0",
+        "body-parser": "^1.19.0",
+        "express": "^4.17.1",
+        "graphql": "^15.5.0",
+        "lodash.merge": "^4.6.2",
+        "mongodb": "^3.6.6"
+    },
+    "devDependencies": {
+        "@types/body-parser": "^1.19.0",
+        "@types/dotenv": "^8.2.0",
+        "@types/express": "^4.17.11",
+        "@types/graphql": "^14.5.0",
+        "@types/lodash.merge": "^4.6.6",
+        "@types/mongodb": "^3.6.12",
+        "@types/node": "^14.14.39",
+        "@typescript-eslint/eslint-plugin": "^4.22.0",
+        "@typescript-eslint/parser": "^4.22.0",
+        "dotenv": "^8.2.0",
+        "eslint": "^7.24.0",
+        "eslint-plugin-react": "^7.23.2",
+        "nodemon": "^2.0.7",
+        "ts-node": "^9.1.1",
+        "typescript": "^4.2.4"
+    },
+    "scripts": {
+        "start": "nodemon src/index.ts",
+        "build": "tsc -p ./",
+        "seed": "ts-node temp/seed.ts"
+    }
+}

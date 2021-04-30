@@ -1,0 +1,16 @@
+0000000000000000000000000000000000000000 462f44c304a291233614b896f927ef6847526528 Hari.Doshi <hdoshi2@gmail.com> 1618464061 -0600	commit (initial): Initial Commit
+462f44c304a291233614b896f927ef6847526528 462f44c304a291233614b896f927ef6847526528 Hari.Doshi <hdoshi2@gmail.com> 1618464343 -0600	Branch: renamed refs/heads/master to refs/heads/main
+462f44c304a291233614b896f927ef6847526528 9227677c4df393a66e2a0c891df05559da47eef2 Hari.Doshi <hdoshi2@gmail.com> 1618771917 -0600	commit: add eslint ts rules
+9227677c4df393a66e2a0c891df05559da47eef2 b54df55e8d67949942eeebe798d3687539db1029 Hari.Doshi <hdoshi2@gmail.com> 1618781818 -0600	commit: updates to eslint settings for ts
+b54df55e8d67949942eeebe798d3687539db1029 924727510cfcc4cbf14b229a4471c0086fffd8f7 Hari.Doshi <hdoshi2@gmail.com> 1619067064 -0600	commit: ADD: GraphQL and test GraphQL queries
+924727510cfcc4cbf14b229a4471c0086fffd8f7 71280535842b41406b20095fd16cfc95f825ff8a Hari.Doshi <hdoshi2@gmail.com> 1619068908 -0600	commit: ADD GraphQL query for listings.
+71280535842b41406b20095fd16cfc95f825ff8a bec6caaf26aa96b1688e30af52626f5ffc2c6190 Hari.Doshi <hdoshi2@gmail.com> 1619291657 -0600	commit: ADD graphQL query and mutation methods
+bec6caaf26aa96b1688e30af52626f5ffc2c6190 477a7581b40a371d78fa55169b8d82d9ea2c7a10 Hari.Doshi <hdoshi2@gmail.com> 1619294044 -0600	commit: UPDATE graphQL queries to graphQL schema language
+477a7581b40a371d78fa55169b8d82d9ea2c7a10 3b1bf3f2700414678e9403294f5af75ac8c14892 Hari.Doshi <hdoshi2@gmail.com> 1619297554 -0600	commit: ADD mongo db connection
+3b1bf3f2700414678e9403294f5af75ac8c14892 2dd31245d05402f4bea3fd2a205257a7a259c187 Hari.Doshi <hdoshi2@gmail.com> 1619297711 -0600	commit: REMOVE REST api routes
+2dd31245d05402f4bea3fd2a205257a7a259c187 994edb602ab970a58b75f9fbe6424e891ede15a4 Hari.Doshi <hdoshi2@gmail.com> 1619325849 -0600	commit: ADD set Listing types
+994edb602ab970a58b75f9fbe6424e891ede15a4 cfa72842ddb553985bbfb3717bfd402dc20469a0 Hari.Doshi <hdoshi2@gmail.com> 1619326863 -0600	commit: ADD env variables
+cfa72842ddb553985bbfb3717bfd402dc20469a0 d4b279dacd31fc49a4c84998e3055072b87ca21d Hari.Doshi <hdoshi2@gmail.com> 1619387623 -0600	commit: ADD mongoDB see data
+d4b279dacd31fc49a4c84998e3055072b87ca21d fc6adad67003dbd9e7a85e7d50240b69a7c54226 Hari.Doshi <hdoshi2@gmail.com> 1619404132 -0600	commit: ADD seed data and script
+fc6adad67003dbd9e7a85e7d50240b69a7c54226 408b872d475b28c3c1cb0a504fe4ce7c35e440fc Hari.Doshi <hdoshi2@gmail.com> 1619406137 -0600	commit: UPDATE: Resolvers to fetch data and delete data from mongodb
+408b872d475b28c3c1cb0a504fe4ce7c35e440fc 7803089aae5d3d7bf58338cba07ff37d16420f13 Hari.Doshi <hdoshi2@gmail.com> 1619406884 -0600	commit: REFACTOR: Modularize Resolvers
