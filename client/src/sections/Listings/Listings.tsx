@@ -34,32 +34,35 @@ export const Listings = ({ title }: Props) => {
 
   const fetchListings = async () => {
     const { data } = await server.fetch<ListingsData>({ query: LISTINGS });
-
       setListings(data.listings);
-
       console.log("fetchListings", data); // check the console to see the listings data from our GraphQL Request!
     };
 
 
-    const deleteListing = async () => {
-      const { data } = await server.fetch<DeleteListingData,DeleteListingVariables>
+    const deleteListing = async (id: string) => {
+      await server.fetch<DeleteListingData,DeleteListingVariables>
         ({
         query: DELETE_LISTING,
         variables: {
-          id: "608612e131b6af723a3f004a" // hardcoded id variable,
+          id
         }
       });
 
-    console.log("deleteListing", data); // check the console to see the result of the mutation!
+      fetchListings();
+    // console.log("deleteListing", data); // check the console to see the result of the mutation!
     };
 
 
     const listListings = listings ?
-    <ul>
-    {listings.map((listing) => {
-      return <li key={listing.id}>{listing.title}</li>
-    })}
-    </ul> : null;
+      <ul>
+      {listings.map((listing) => {
+        return <li key={listing.id}>{listing.title}
+          <button onClick={() => deleteListing(listing.id)}>
+            Delete
+          </button>
+        </li>
+      })}
+      </ul> : null;
 
 
     return (
@@ -67,7 +70,6 @@ export const Listings = ({ title }: Props) => {
         <h2>{title}</h2>
         {listListings}
         <button onClick={fetchListings}>Query Listings!</button>
-        <button onClick={deleteListing}>Delete a listing!</button>
       </div>
     );
 
