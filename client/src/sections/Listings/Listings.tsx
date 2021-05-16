@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {server} from "../../lib/api"
+import {server, useQuery} from "../../lib/api"
 import {ListingsData, DeleteListingVariables, DeleteListingData, Listing} from './types';
 
 const LISTINGS = `
@@ -30,42 +30,45 @@ interface Props {
 
 export const Listings = ({ title }: Props) => {
 
-  const [listings, setListings] = useState<Listing[] | null>(null);
+  const {data} = useQuery<ListingsData>(LISTINGS);
 
-  
-  useEffect(() => {
-    fetchListings();
-  }, []);
+  // const [listings, setListings] = useState<Listing[] | null>(null);
+  const listings = data ? data.listings : null;
 
 
-  const fetchListings = async () => {
-    const { data } = await server.fetch<ListingsData>({ query: LISTINGS });
-      setListings(data.listings);
-      console.log("fetchListings", data); // check the console to see the listings data from our GraphQL Request!
-    };
+  // useEffect(() => {
+  //   fetchListings();
+  // }, []);
 
 
-    const deleteListing = async (id: string) => {
-      await server.fetch<DeleteListingData,DeleteListingVariables>
-        ({
-        query: DELETE_LISTING,
-        variables: {
-          id
-        }
-      });
+  // const fetchListings = async () => {
+  //   const { data } = await server.fetch<ListingsData>({ query: LISTINGS });
+  //     setListings(data.listings);
+  //     console.log("fetchListings", data); // check the console to see the listings data from our GraphQL Request!
+  //   };
 
-      fetchListings();
-    // console.log("deleteListing", data); // check the console to see the result of the mutation!
-    };
+
+    // const deleteListing = async (id: string) => {
+    //   await server.fetch<DeleteListingData,DeleteListingVariables>
+    //     ({
+    //     query: DELETE_LISTING,
+    //     variables: {
+    //       id
+    //     }
+    //   });
+
+    //   fetchListings();
+    // // console.log("deleteListing", data); // check the console to see the result of the mutation!
+    // };
 
 
     const listListings = listings ?
       <ul>
       {listings.map((listing) => {
         return <li key={listing.id}>{listing.title}
-          <button onClick={() => deleteListing(listing.id)}>
+          {/* <button onClick={() => deleteListing(listing.id)}>
             Delete
-          </button>
+          </button> */}
         </li>
       })}
       </ul> : null;
@@ -75,7 +78,7 @@ export const Listings = ({ title }: Props) => {
       <div>
         <h2>{title}</h2>
         {listListings}
-        <button onClick={fetchListings}>Query Listings!</button>
+        {/* <button onClick={fetchListings}>Query Listings!</button> */}
       </div>
     );
 
