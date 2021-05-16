@@ -8,7 +8,7 @@ export interface Listing {
     numOfBeds: number;
     numOfBaths: number;
     rating: number;
-  }
+  };
 
   export type ListingsData = {
     listings: Listing[];
@@ -16,8 +16,8 @@ export interface Listing {
 
   export interface DeleteListingData {
     deleteListing: Listing;
-  }
+  };
 
   export interface DeleteListingVariables {
     id: string;
-  }
+  };

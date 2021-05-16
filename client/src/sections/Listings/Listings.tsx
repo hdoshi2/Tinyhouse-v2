@@ -30,55 +30,43 @@ interface Props {
 
 export const Listings = ({ title }: Props) => {
 
-  const {data} = useQuery<ListingsData>(LISTINGS);
+  const {data, refetch} = useQuery<ListingsData>(LISTINGS);
 
   // const [listings, setListings] = useState<Listing[] | null>(null);
   const listings = data ? data.listings : null;
 
 
-  // useEffect(() => {
-  //   fetchListings();
-  // }, []);
+
+  const deleteListing = async (id: string) => {
+    await server.fetch<DeleteListingData,DeleteListingVariables>
+      ({
+      query: DELETE_LISTING,
+      variables: {
+        id
+      }
+    });
+
+    refetch();
+
+  };
 
 
-  // const fetchListings = async () => {
-  //   const { data } = await server.fetch<ListingsData>({ query: LISTINGS });
-  //     setListings(data.listings);
-  //     console.log("fetchListings", data); // check the console to see the listings data from our GraphQL Request!
-  //   };
-
-
-    // const deleteListing = async (id: string) => {
-    //   await server.fetch<DeleteListingData,DeleteListingVariables>
-    //     ({
-    //     query: DELETE_LISTING,
-    //     variables: {
-    //       id
-    //     }
-    //   });
-
-    //   fetchListings();
-    // // console.log("deleteListing", data); // check the console to see the result of the mutation!
-    // };
-
-
-    const listListings = listings ?
-      <ul>
-      {listings.map((listing) => {
-        return <li key={listing.id}>{listing.title}
-          {/* <button onClick={() => deleteListing(listing.id)}>
-            Delete
-          </button> */}
-        </li>
-      })}
-      </ul> : null;
+  const listListings = listings ?
+    <ul>
+    {listings.map((listing) => {
+      return <li key={listing.id}>{listing.title}
+        <button onClick={() => deleteListing(listing.id)}>
+          Delete
+        </button>
+      </li>
+    })}
+    </ul> : null;
 
 
     return (
       <div>
         <h2>{title}</h2>
         {listListings}
-        {/* <button onClick={fetchListings}>Query Listings!</button> */}
       </div>
     );
 
