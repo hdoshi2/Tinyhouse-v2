@@ -30,7 +30,7 @@ interface Props {
 
 export const Listings = ({ title }: Props) => {
 
-  const {data, refetch} = useQuery<ListingsData>(LISTINGS);
+  const {data, loading, refetch, error} = useQuery<ListingsData>(LISTINGS);
 
   // const [listings, setListings] = useState<Listing[] | null>(null);
   const listings = data ? data.listings : null;
@@ -62,7 +62,12 @@ export const Listings = ({ title }: Props) => {
     })}
     </ul> : null;
 
+    if(loading)
+      return <div>Loading...</div>;
 
+    if(error)
+      return <div>Something went wrong!</div>;
+      
     return (
       <div>
         <h2>{title}</h2>
